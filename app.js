@@ -28,8 +28,20 @@ function scrollToCategoryStart(){
  }));
  window.scrollTo({top:Math.max(0,window.scrollY+section.getBoundingClientRect().top-stickyOffset-16),behavior:'instant'});
 }
-$('#categories').addEventListener('click',e=>{const button=e.target.closest('[data-category]');if(!button)return;selectedCategory=button.dataset.category;renderCategories();renderMenu();revealCategory();scrollToCategoryStart();});
+function selectCategory(id){selectedCategory=id;$('#search').value='';renderCategories();renderMenu();revealCategory();scrollToCategoryStart();}
+$('#categories').addEventListener('click',e=>{const button=e.target.closest('[data-category]');if(button)selectCategory(button.dataset.category);});
 $('#search').addEventListener('input',renderMenu);
 $('#clear-search').addEventListener('click',()=>{selectedCategory='all';$('#search').value='';renderCategories();renderMenu();$('#search').focus();});
 $('#show-rounds').addEventListener('click',()=>{selectedCategory='rondas';$('#search').value='';renderCategories();renderMenu();revealCategory();scrollToCategoryStart();});
 renderCategories();renderMenu();
+
+const picker=$('#category-picker');
+$('#nav-menu').addEventListener('click',()=>selectCategory('all'));
+$('#nav-search').addEventListener('click',()=>{$('#search').focus({preventScroll:true});window.scrollTo({top:window.scrollY+$('.menu-tools').getBoundingClientRect().top-$('.header').getBoundingClientRect().height,behavior:'instant'});});
+$('#nav-categories').addEventListener('click',()=>{
+ $('#picker-options').innerHTML=[{id:'all',name:'Toda la carta',groups:MENU.flatMap(c=>c.groups)},...MENU].map(c=>'<button type="button" data-category="'+c.id+'" aria-pressed="'+(selectedCategory===c.id)+'">'+c.name+'<span>'+c.groups.reduce((n,g)=>n+g.items.length,0)+' platos</span></button>').join('');
+ picker.showModal();
+});
+$('#close-picker').addEventListener('click',()=>picker.close());
+$('#picker-options').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;picker.close();selectCategory(b.dataset.category);});
+picker.addEventListener('click',e=>{if(e.target===picker){const r=picker.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)picker.close();}});
