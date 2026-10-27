@@ -2,6 +2,7 @@ const $ = s => document.querySelector(s);
 const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 let selectedCategory = 'all';
 function renderCategories(){
+ requestAnimationFrame(updateCategoryHint);
  $('#categories').innerHTML=[{id:'all',name:'Toda la carta'},...MENU].map(c=>`<button type="button" data-category="${c.id}" class="${selectedCategory===c.id?'active':''}" aria-pressed="${selectedCategory===c.id}">${c.name}</button>`).join('');
 }
 function renderMenu(){
@@ -45,3 +46,13 @@ $('#nav-categories').addEventListener('click',()=>{
 $('#close-picker').addEventListener('click',()=>picker.close());
 $('#picker-options').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;picker.close();selectCategory(b.dataset.category);});
 picker.addEventListener('click',e=>{if(e.target===picker){const r=picker.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)picker.close();}});
+
+function updateCategoryHint(){
+ const list=$('#categories');
+ $('#category-hint').hidden=list.scrollWidth-list.clientWidth-list.scrollLeft<8;
+}
+$('#categories').addEventListener('scroll',updateCategoryHint,{passive:true});
+$('#category-hint').addEventListener('click',()=>{
+ $('#categories').scrollBy({left:Math.max(180,$('#categories').clientWidth*.7),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+});
+new ResizeObserver(updateCategoryHint).observe($('#categories'));
