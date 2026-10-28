@@ -1,6 +1,6 @@
 # Agallas · Carta digital
 
-Carta pública de Agallas Barra Cevichera, adaptada a celulares, con categorías y búsqueda. Nombres, descripciones y precios transcritos de las fotos de la carta enviadas el 28 de octubre de 2026: 21 categorías y 174 opciones, incluidos tamaños y variantes de bebidas.
+Carta pública de Agallas Barra Cevichera, adaptada a celulares, con categorías y búsqueda. Nombres, descripciones y precios transcritos de las fotos de la carta enviadas el 28 de octubre de 2026: 18 categorías y 174 opciones, incluidos tamaños y variantes de bebidas.
 
 ## Publicación
 

@@ -72,11 +72,11 @@ const MENU = [
   },
 
   // ============================================================
-  // CATEGORÍA: LECHES DE TIGRE
+  // CATEGORÍA: LECHE (PARA TIGRES)
   // ============================================================
   {
     id: "leches",
-    name: "Leches de tigre",
+    name: "Leche (para tigres)",
     intro: "Todas nuestras leches están preparadas con una rica base cevichera y limón del norte.",
     groups: [
       {
@@ -122,6 +122,35 @@ const MENU = [
             nombre: "Trío lechero",
             descripcion: "Amarillo (crema de rocoto) y clásico, con toque de ají y culantro.",
             precio: 40,
+          },
+        ],
+      },
+      {
+        name: "Pescados a lo macho",
+        label: "S/ 45",
+        recuadro: true,
+        descripcion: "Pescado frito bañado en salsa de mariscos, con yuca frita y shot de leche de tigre.",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Filete a lo macho",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Cabrilla a lo macho",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Trambollo a lo macho",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Chita a lo macho",
+            descripcion: "",
+            precio: 45,
           },
         ],
       },
@@ -549,17 +578,6 @@ const MENU = [
           },
         ],
       },
-    ],
-  },
-
-  // ============================================================
-  // CATEGORÍA: DEL MAR Y LA PARRILLA
-  // ============================================================
-  {
-    id: "mar",
-    name: "Del mar y la parrilla",
-    intro: "El mar se luce. Tú eliges cómo disfrutarlo.",
-    groups: [
       {
         name: "Del mar y la parrilla",
         // EDITAR PLATOS DE ESTE GRUPO AQUÍ
@@ -609,6 +627,36 @@ const MENU = [
             nombre: "Langostinos al Agallas",
             descripcion: "Bañados en salsa a lo Agallas golf.",
             precio: 35,
+          },
+        ],
+      },
+      {
+        name: "Trío de causas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Trío de causas",
+            descripcion: "Pulpo al olivo, pulpa de cangrejo y langostinos acevichados.",
+            precio: 45,
+          },
+        ],
+      },
+      {
+        name: "Rondas (para compartir)",
+        id: "rondas",
+        label: "S/ 90",
+        recuadro: true,
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Ronda a los Agallas",
+            descripcion: "Causa, arroz con mariscos, chicharrón, leche de tigre y ceviche.",
+            precio: 90,
+          },
+          {
+            nombre: "Ronda Fría",
+            descripcion: "Ceviche de pescado, leche de tigre, causa, conchas negras y tiradito.",
+            precio: 90,
           },
         ],
       },
@@ -874,44 +922,6 @@ const MENU = [
   },
 
   // ============================================================
-  // CATEGORÍA: PESCADOS A LO MACHO
-  // ============================================================
-  {
-    id: "macho",
-    name: "Pescados a lo macho",
-    intro: "Pescado frito bañado en salsa de mariscos, con yuca frita y shot de leche de tigre.",
-    groups: [
-      {
-        name: "Pescados a lo macho",
-        label: "S/ 45",
-        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
-        items: [
-          {
-            nombre: "Filete a lo macho",
-            descripcion: "",
-            precio: 45,
-          },
-          {
-            nombre: "Cabrilla a lo macho",
-            descripcion: "",
-            precio: 45,
-          },
-          {
-            nombre: "Trambollo a lo macho",
-            descripcion: "",
-            precio: 45,
-          },
-          {
-            nombre: "Chita a lo macho",
-            descripcion: "",
-            precio: 45,
-          },
-        ],
-      },
-    ],
-  },
-
-  // ============================================================
   // CATEGORÍA: PESCADOS FRITOS
   // ============================================================
   {
@@ -1089,38 +1099,6 @@ const MENU = [
             nombre: "Choclo",
             descripcion: "",
             precio: 6,
-          },
-        ],
-      },
-    ],
-  },
-
-  // ============================================================
-  // CATEGORÍA: PARA COMPARTIR
-  // ============================================================
-  {
-    id: "rondas",
-    name: "Para compartir",
-    intro: "Porque lo bueno sabe mejor en compañía.",
-    groups: [
-      {
-        name: "Al centro de la mesa",
-        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
-        items: [
-          {
-            nombre: "Trío de causas",
-            descripcion: "Pulpo al olivo, pulpa de cangrejo y langostinos acevichados.",
-            precio: 45,
-          },
-          {
-            nombre: "Ronda a los Agallas",
-            descripcion: "Causa, arroz con mariscos, chicharrón, leche de tigre y ceviche.",
-            precio: 90,
-          },
-          {
-            nombre: "Ronda Fría",
-            descripcion: "Ceviche de pescado, leche de tigre, causa, conchas negras y tiradito.",
-            precio: 90,
           },
         ],
       },

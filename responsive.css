@@ -23,3 +23,11 @@
 .category-hint span{display:grid;place-items:center;width:25px;height:23px;border-radius:20px;background:#ad614514;font-size:19px;line-height:1;animation:category-nudge 1.8s ease-in-out infinite}
 @keyframes category-nudge{0%,100%{transform:translateX(-3px);opacity:.65}50%{transform:translateX(3px);opacity:1}}
 @media(prefers-reduced-motion:reduce){.category-hint span{animation:none}}
+/* Framed closing sections follow the printed menu. */
+.group-card{margin:24px 0 18px;padding:4px 18px 2px;border:1.5px solid var(--ink);border-radius:4px;background:#f6f2e780}
+.group-card .group-title{justify-content:space-between;align-items:baseline;border:0;margin:12px 0 8px;padding:0;gap:12px}
+.group-card .group-title h4{font:600 27px/1.15 'Barlow Condensed',Impact,sans-serif;letter-spacing:.2px}
+.group-card .group-title>span{font:600 22px 'Barlow Condensed',Impact,sans-serif;white-space:nowrap;color:var(--ink)}
+.group-description{margin:0 0 4px;font-size:13px;line-height:1.6;color:var(--muted)}
+.group-card .menu-item{border-bottom-color:#17344124}.group-card .item-grid{grid-template-columns:minmax(0,1fr)}
+@media(max-width:760px){.group-card{margin:22px 0 16px;padding:3px 12px 0}.group-card .group-title h4{font-size:25px}.group-card .group-title>span{font-size:21px}.group-card .menu-item{gap:10px;padding-block:14px}.group-description{font-size:13px}}

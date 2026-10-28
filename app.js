@@ -13,15 +13,15 @@ function renderMenu(){
   const groups=c.groups.map(g=>{
    const items=g.items.filter(i=>normalize([c.name,g.name,i.nombre,i.descripcion].join(' ')).includes(query));
    categoryCount+=items.length;if(!items.length)return '';
-   return `${c.groups.length>1?`<div class="group-title"><h4>${g.name}</h4>${g.label?`<span>${g.label}</span>`:''}</div>`:''}<div class="item-grid">${items.map(i=>`<article class="menu-item"><div class="item-copy"><h5>${i.nombre}</h5>${i.descripcion?`<p>${i.descripcion}</p>`:''}</div><span class="item-price">S/ ${formatPrice(i.precio)}</span></article>`).join('')}</div>`;
+   return `${g.recuadro?'<div class="group-card">':''}${c.groups.length>1?`<div class="group-title"${g.id?` data-group="${g.id}"`:""}><h4>${g.name}</h4>${g.label?`<span>${g.label}</span>`:''}</div>`:''}${g.descripcion?`<p class="group-description">${g.descripcion}</p>`:''}<div class="item-grid">${items.map(i=>`<article class="menu-item"><div class="item-copy"><h5>${i.nombre}</h5>${i.descripcion?`<p>${i.descripcion}</p>`:''}</div><span class="item-price">S/ ${formatPrice(i.precio)}</span></article>`).join('')}</div>${g.recuadro?'</div>':''}`;
   }).join('');count+=categoryCount;
   return categoryCount?`<section class="category-section"><div class="category-title"><h3>${c.name}</h3><span>${categoryCount} ${categoryCount===1?'opción':'opciones'}</span></div><p class="category-intro">${c.intro}</p>${groups}</section>`:'';
  }).join('');
  $('#empty').hidden=count>0;$('#results-note').textContent=query?`${count} ${count===1?'opción encontrada':'opciones encontradas'}`:'';
 }
 function revealCategory(){const active=$('#categories .active');if(active)active.scrollIntoView({behavior:'instant',block:'nearest',inline:'nearest'});}
-function scrollToCategoryStart(){
- const section=$('#menu .category-section')||$('#empty');
+function scrollToCategoryStart(target){
+ const section=target||$('#menu .category-section')||$('#empty');
  const stickyOffset=Math.max(0,...['.header','.menu-tools'].map(selector=>{
   const element=$(selector);
   if(!element)return 0;
@@ -34,7 +34,7 @@ function selectCategory(id){selectedCategory=id;$('#search').value='';renderCate
 $('#categories').addEventListener('click',e=>{const button=e.target.closest('[data-category]');if(button)selectCategory(button.dataset.category);});
 $('#search').addEventListener('input',renderMenu);
 $('#clear-search').addEventListener('click',()=>{selectedCategory='all';$('#search').value='';renderCategories();renderMenu();$('#search').focus();});
-$('#show-rounds').addEventListener('click',()=>{selectedCategory='rondas';$('#search').value='';renderCategories();renderMenu();revealCategory();scrollToCategoryStart();});
+$('#show-rounds').addEventListener('click',()=>{selectCategory('causas');scrollToCategoryStart($('#menu [data-group="rondas"]').closest('.group-card'));});
 renderCategories();renderMenu();
 
 const picker=$('#category-picker');
