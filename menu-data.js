@@ -33,22 +33,22 @@ const MENU = [
         items: [
           {
             nombre: "Tequeños de queso",
-            descripcion: "8 unidades.",
+            descripcion: "8 unidades. Salsa guacamole.",
             precio: 20,
           },
           {
             nombre: "Tequeños de atún",
-            descripcion: "8 unidades.",
+            descripcion: "8 unidades. Salsa guacamole.",
             precio: 25,
           },
           {
-            nombre: "Tortillas de choclo chiclayanas",
+            nombre: "Tortillas de Choclo Chiclayanas",
             descripcion: "Acevichado: ceviche de pescado, pota o langostinos.",
             precio: 30,
           },
           {
-            nombre: "Conchitas a la parmesana u orientales",
-            descripcion: "Toque peruano.",
+            nombre: "Conchitas a la parmesana",
+            descripcion: "Toque peruano y quesos.",
             precio: 30,
           },
           {
@@ -57,19 +57,14 @@ const MENU = [
             precio: 20,
           },
           {
-            nombre: "Chalacas · Choritos mariscos",
+            nombre: "Mariscos a la Chalaca",
             descripcion: "Mix de verduras y leche de tigre.",
             precio: 35,
           },
           {
-            nombre: "Pulpo parmesano",
+            nombre: "Pulpo Gratinado y quesos",
             descripcion: "",
             precio: 30,
-          },
-          {
-            nombre: "Sándwiches marinos",
-            descripcion: "Chicharrón de pejerrey o pescado. Salsa criolla y tártara.",
-            precio: 25,
           },
         ],
       },
@@ -94,7 +89,7 @@ const MENU = [
             precio: 17,
           },
           {
-            nombre: "Leche Huancueño",
+            nombre: "Leche Huanaqueño",
             descripcion: "Leche + papa rellena.",
             precio: 17,
           },
@@ -126,6 +121,110 @@ const MENU = [
           {
             nombre: "Trío lechero",
             descripcion: "Amarillo (crema de rocoto) y clásico, con toque de ají y culantro.",
+            precio: 40,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: CEVICHES Y TIRADITOS
+  // ============================================================
+  {
+    id: "frios",
+    name: "Ceviches y tiraditos",
+    intro: "Frialdad: ceviches de la casa, especiales, tiraditos y láminas.",
+    groups: [
+      {
+        name: "Ceviches de la casa",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Huanaqueño",
+            descripcion: "Con papa rellena, pescado y pota.",
+            precio: 17,
+          },
+          {
+            nombre: "Huanaqueño",
+            descripcion: "Papa rellena y puro pescado.",
+            precio: 22,
+          },
+          {
+            nombre: "De la Esquina",
+            descripcion: "Pescado y pota + chicharrón.",
+            precio: 35,
+          },
+          {
+            nombre: "Pescado",
+            descripcion: "Clásico con camote y choclo.",
+            precio: 40,
+          },
+          {
+            nombre: "Mixto",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Pulpo y Langostino",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Universitario y Alianza",
+            descripcion: "Conchas negras y pescado.",
+            precio: 40,
+          },
+        ],
+      },
+      {
+        name: "Ceviches especiales",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Norteño",
+            descripcion: "Limón, ají y culantro. Acompañado de tortilla de choclo.",
+            precio: 40,
+          },
+          {
+            nombre: "Conchas Negras",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Ceviche Apaltado",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Ceviche de Pulpo",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Ceviche de Pota",
+            descripcion: "",
+            precio: 38,
+          },
+        ],
+      },
+      {
+        name: "Tiraditos y láminas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Tiradito Clásico",
+            descripcion: "Filete en leche de tigre.",
+            precio: 40,
+          },
+          {
+            nombre: "Pulpo al Olivo",
+            descripcion: "Láminas en salsa olivada.",
+            precio: 45,
+          },
+          {
+            nombre: "Tiradito a lo Agalla",
+            descripcion: "Pescado, pulpo y langostino.",
             precio: 40,
           },
         ],
@@ -230,7 +329,7 @@ const MENU = [
           },
           {
             nombre: "Carretillero 16",
-            descripcion: "Leche de tigre + arroz con langostinos.",
+            descripcion: "Leche de tigre + arroz con langostino.",
             precio: 40,
           },
           {
@@ -240,7 +339,7 @@ const MENU = [
           },
           {
             nombre: "Carretillero 18",
-            descripcion: "Ceviche de pescado + chicharrón de pejerrey.",
+            descripcion: "Causa acevichada + chaufa de mariscos.",
             precio: 40,
           },
         ],
@@ -257,7 +356,7 @@ const MENU = [
           },
           {
             nombre: "Carretillero 20",
-            descripcion: "Ceviche de pescado + chicharrón de calamar.",
+            descripcion: "Ceviche de pescado + arroz norteño.",
             precio: 45,
           },
           {
@@ -269,6 +368,116 @@ const MENU = [
             nombre: "Carretillero 22",
             descripcion: "Causa acevichada con pulpa de cangrejo + arroz con mariscos.",
             precio: 45,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: TRÍO AGALLAS
+  // ============================================================
+  {
+    id: "trios",
+    name: "Trío Agallas",
+    intro: "La combinación perfecta en tres tiempos.",
+    groups: [
+      {
+        name: "Los clásicos",
+        label: "S/ 45",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Trío Agallas 1",
+            descripcion: "Ceviche de pescado + arroz con mariscos + chicharrón de pescado.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 2",
+            descripcion: "Ceviche de pescado + chaufa de mariscos + causa.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 3",
+            descripcion: "Leche de tigre + causa + arroz con mariscos.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 4",
+            descripcion: "Ceviche de pescado + causa + arroz con mariscos.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 5",
+            descripcion: "Ceviche de conchas negras + causa + arroz con mariscos.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 6",
+            descripcion: "Ceviche de pescado + leche de tigre + chicharrón de pota.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 7",
+            descripcion: "Ceviche de pescado + chaufa de mariscos + chicharrón de pescado.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 8",
+            descripcion: "Leche de tigre + causa + chaufa de pescado.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 9",
+            descripcion: "Leche de tigre + chicharrón de pota + arroz con mariscos.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 10",
+            descripcion: "Chicharrón de pescado + causa + arroz con mariscos.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 11",
+            descripcion: "Ceviche de pescado + arroz de conchas negras + chicharrón de pescado.",
+            precio: 45,
+          },
+          {
+            nombre: "Trío Agallas 12",
+            descripcion: "Chaufa de pescado + leche de tigre + chicharrón de pescado.",
+            precio: 45,
+          },
+        ],
+      },
+      {
+        name: "Los especiales",
+        label: "S/ 48",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Trío Agallas 13",
+            descripcion: "Chicharrón de camarón + leche de tigre + arroz con mariscos.",
+            precio: 48,
+          },
+          {
+            nombre: "Trío Agallas 14",
+            descripcion: "Ceviche de langostinos + causa + arroz con mariscos.",
+            precio: 48,
+          },
+          {
+            nombre: "Trío Agallas 15",
+            descripcion: "Ceviche de conchas negras + causa + chicharrón de pescado.",
+            precio: 48,
+          },
+          {
+            nombre: "Trío Agallas 16",
+            descripcion: "Ceviche de pescado + arroz norteño + chicharrón de pescado.",
+            precio: 48,
+          },
+          {
+            nombre: "Trío Agallas 17",
+            descripcion: "Leche de tigre + chicharrón mixto + chaufa de mariscos.",
+            precio: 48,
           },
         ],
       },
@@ -305,11 +514,11 @@ const MENU = [
           {
             nombre: "Causa Achorada",
             descripcion: "Con ceviche y chicharrón de pescado.",
-            precio: 28,
+            precio: 30,
           },
           {
             nombre: "Causa Bien Peruana",
-            descripcion: "Montada en chicharrón de pescado, salsa golf y shot.",
+            descripcion: "Montada en chicharrón de pescado y shot.",
             precio: 28,
           },
         ],
@@ -330,11 +539,6 @@ const MENU = [
           },
           {
             nombre: "Causa con Escabeche de Pescado",
-            descripcion: "",
-            precio: 35,
-          },
-          {
-            nombre: "Causa Orientales",
             descripcion: "",
             precio: 35,
           },
@@ -408,6 +612,275 @@ const MENU = [
           },
         ],
       },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: PASTAS
+  // ============================================================
+  {
+    id: "pastas",
+    name: "Pastas",
+    intro: "",
+    groups: [
+      {
+        name: "Pastas",
+        label: "S/ 45",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Spaguetti en Salsa de Mariscos",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Rigatoni en Salsa de Chupe con Langostinos",
+            descripcion: "",
+            precio: 45,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: CHICHARRONES Y JALEAS
+  // ============================================================
+  {
+    id: "chicharrones",
+    name: "Chicharrones y jaleas",
+    intro: "Acompañados de yuca frita y shot de leche de tigre.",
+    groups: [
+      {
+        name: "Chicharrones y jaleas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Chicharrón de Pota",
+            descripcion: "",
+            precio: 30,
+          },
+          {
+            nombre: "Chicharrón de Pescado",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Jalea de Pescado",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Langostinos",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Camarones",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Mariscos",
+            descripcion: "",
+            precio: 38,
+          },
+          {
+            nombre: "Calamar",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Pulpo",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Jalea Mixta",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Mixto · Pescado y mariscos",
+            descripcion: "",
+            precio: 40,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: PLATOS CRIOLLOS
+  // ============================================================
+  {
+    id: "criollos",
+    name: "Platos criollos",
+    intro: "",
+    groups: [
+      {
+        name: "Platos criollos",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Tacu tacu con lomo al jugo",
+            descripcion: "",
+            precio: 48,
+          },
+          {
+            nombre: "Lomo Saltado",
+            descripcion: "Papas fritas y arroz.",
+            precio: 45,
+          },
+          {
+            nombre: "Arroz con pato",
+            descripcion: "Arroz húmedo, salsa criolla.",
+            precio: 48,
+          },
+          {
+            nombre: "Pescado a la plancha con frejoles",
+            descripcion: "Salsa criolla y yuca sancochada.",
+            precio: 40,
+          },
+          {
+            nombre: "Pechuga a la plancha",
+            descripcion: "Papas fritas y ensalada.",
+            precio: 35,
+          },
+          {
+            nombre: "Apanado de pescado",
+            descripcion: "Yuca frita y ensalada.",
+            precio: 35,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: ARROCES Y CHAUFAS
+  // ============================================================
+  {
+    id: "arroces",
+    name: "Arroces y chaufas",
+    intro: "",
+    groups: [
+      {
+        name: "Arroces",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Arroz con Mariscos",
+            descripcion: "Mixtura en salsa madre, flameado y bien húmedo. Shot de leche de tigre.",
+            precio: 35,
+          },
+          {
+            nombre: "Arroz Norteño",
+            descripcion: "Mixtura en salsa madre, flameado y bien húmedo. Shot de leche de tigre.",
+            precio: 35,
+          },
+          {
+            nombre: "Arroz con Langostinos",
+            descripcion: "Mixtura en salsa madre, flameado y bien húmedo. Shot de leche de tigre.",
+            precio: 40,
+          },
+          {
+            nombre: "Arroz con Pescado",
+            descripcion: "Mixtura en salsa madre, flameado y bien húmedo. Shot de leche de tigre.",
+            precio: 40,
+          },
+          {
+            nombre: "Arroz Chupero",
+            descripcion: "Mixtura en salsa madre, flameado y bien húmedo. Shot de leche de tigre.",
+            precio: 40,
+          },
+          {
+            nombre: "Arroz con Conchas Negras",
+            descripcion: "Mixtura en salsa madre, flameado y bien húmedo. Shot de leche de tigre.",
+            precio: 40,
+          },
+        ],
+      },
+      {
+        name: "Chaufas",
+        label: "S/ 35",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Chaufa de Mariscos",
+            descripcion: "Salteado al wok con aliños orientales. Shot de leche de tigre.",
+            precio: 35,
+          },
+          {
+            nombre: "Chaufa de Pescado",
+            descripcion: "Salteado al wok con aliños orientales. Shot de leche de tigre.",
+            precio: 35,
+          },
+          {
+            nombre: "Chaufa de Langostinos",
+            descripcion: "Salteado al wok con aliños orientales. Shot de leche de tigre.",
+            precio: 35,
+          },
+          {
+            nombre: "Chaufa Mixto",
+            descripcion: "Salteado al wok con aliños orientales. Shot de leche de tigre.",
+            precio: 35,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: PLATOS A LO AGALLAS
+  // ============================================================
+  {
+    id: "agallas",
+    name: "Platos a lo Agallas",
+    intro: "",
+    groups: [
+      {
+        name: "Platos a lo Agallas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Pulpo a la Parrilla",
+            descripcion: "",
+            precio: 55,
+          },
+          {
+            nombre: "Cabrilla, tramboyo o chita en salsa de mariscos",
+            descripcion: "",
+            precio: 48,
+          },
+          {
+            nombre: "Cabrilla, tramboyo o chita al ajo",
+            descripcion: "",
+            precio: 48,
+          },
+          {
+            nombre: "Brochetas de pescado",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Tacu tacu en Salsa de Mariscos",
+            descripcion: "",
+            precio: 45,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: PESCADOS A LO MACHO
+  // ============================================================
+  {
+    id: "macho",
+    name: "Pescados a lo macho",
+    intro: "Pescado frito bañado en salsa de mariscos, con yuca frita y shot de leche de tigre.",
+    groups: [
       {
         name: "Pescados a lo macho",
         label: "S/ 45",
@@ -432,6 +905,190 @@ const MENU = [
             nombre: "Chita a lo macho",
             descripcion: "",
             precio: 45,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: PESCADOS FRITOS
+  // ============================================================
+  {
+    id: "fritos",
+    name: "Pescados fritos",
+    intro: "Yuca frita y shot de leche de tigre.",
+    groups: [
+      {
+        name: "Pescados fritos",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Filete frito",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Cabrilla",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Tramboyo",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Chita",
+            descripcion: "",
+            precio: 48,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: SOPAS
+  // ============================================================
+  {
+    id: "sopas",
+    name: "Sopas",
+    intro: "",
+    groups: [
+      {
+        name: "Sopas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Chilcano de Filete",
+            descripcion: "",
+            precio: 30,
+          },
+          {
+            nombre: "Chilcano de Cabrilla",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Chilcano de Tramboyo",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Chupe de Pescado",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Chupe de Camarones",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Chupe de Langostinos",
+            descripcion: "",
+            precio: 35,
+          },
+          {
+            nombre: "Sudado de Cabrilla",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Sudado de Tramboyo",
+            descripcion: "",
+            precio: 40,
+          },
+          {
+            nombre: "Sudado de Chita",
+            descripcion: "",
+            precio: 46,
+          },
+          {
+            nombre: "Parihuela de Filete",
+            descripcion: "",
+            precio: 38,
+          },
+          {
+            nombre: "Parihuela de Cabrilla",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Parihuela de Tramboyo",
+            descripcion: "",
+            precio: 45,
+          },
+          {
+            nombre: "Parihuela de Chita",
+            descripcion: "",
+            precio: 50,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: PARA NIÑOS
+  // ============================================================
+  {
+    id: "ninos",
+    name: "Para niños",
+    intro: "",
+    groups: [
+      {
+        name: "Para niños",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Chicharrón de pollo",
+            descripcion: "Papas fritas y tártara.",
+            precio: 28,
+          },
+          {
+            nombre: "Deditos de pescado",
+            descripcion: "Papas fritas.",
+            precio: 30,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: GUARNICIONES
+  // ============================================================
+  {
+    id: "guarniciones",
+    name: "Guarniciones",
+    intro: "",
+    groups: [
+      {
+        name: "Guarniciones",
+        label: "S/ 6",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Porción de Arroz",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "Yuca frita",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "Yuca sancochada",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "Choclo",
+            descripcion: "",
+            precio: 6,
           },
         ],
       },
@@ -464,6 +1121,189 @@ const MENU = [
             nombre: "Ronda Fría",
             descripcion: "Ceviche de pescado, leche de tigre, causa, conchas negras y tiradito.",
             precio: 90,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: BEBIDAS
+  // ============================================================
+  {
+    id: "bebidas",
+    name: "Bebidas",
+    intro: "",
+    groups: [
+      {
+        name: "Para refrescar",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "La Moradita · Jarra",
+            descripcion: "",
+            precio: 15,
+          },
+          {
+            nombre: "La Moradita · Media jarra",
+            descripcion: "",
+            precio: 7.5,
+          },
+          {
+            nombre: "Agua San Luis",
+            descripcion: "Con o sin gas.",
+            precio: 3,
+          },
+          {
+            nombre: "Frozen · Jarra",
+            descripcion: "Maracumango o limón.",
+            precio: 20,
+          },
+          {
+            nombre: "Refresco de maracuyá · Jarra",
+            descripcion: "",
+            precio: 17,
+          },
+        ],
+      },
+      {
+        name: "Gaseosas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Gaseosa Personal",
+            descripcion: "Inca Kola, Coca-Cola o Fanta.",
+            precio: 4,
+          },
+          {
+            nombre: "Inca Kola Gordita",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "Gaseosa 1 L",
+            descripcion: "Inca Kola, Coca-Cola o Fanta.",
+            precio: 8.5,
+          },
+          {
+            nombre: "Gaseosa 1.5 L",
+            descripcion: "Inca Kola, Coca-Cola o Fanta.",
+            precio: 10,
+          },
+          {
+            nombre: "Gaseosa 2 L",
+            descripcion: "Inca Kola, Coca-Cola o Fanta.",
+            precio: 17,
+          },
+          {
+            nombre: "Gaseosa 3 L",
+            descripcion: "Inca Kola, Coca-Cola o Fanta.",
+            precio: 20,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: CÓCTELES
+  // ============================================================
+  {
+    id: "cocteles",
+    name: "Cócteles",
+    intro: "",
+    groups: [
+      {
+        name: "Chilcanos",
+        label: "S/ 20",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Chilcano Clásico",
+            descripcion: "",
+            precio: 20,
+          },
+          {
+            nombre: "Chilcano de Maracuyá",
+            descripcion: "",
+            precio: 20,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ============================================================
+  // CATEGORÍA: CERVEZAS
+  // ============================================================
+  {
+    id: "cervezas",
+    name: "Cervezas",
+    intro: "",
+    groups: [
+      {
+        name: "Cervezas",
+        // EDITAR PLATOS DE ESTE GRUPO AQUÍ
+        items: [
+          {
+            nombre: "Cusqueña 620 ml",
+            descripcion: "",
+            precio: 12.5,
+          },
+          {
+            nombre: "Cusqueña 310 ml",
+            descripcion: "",
+            precio: 8,
+          },
+          {
+            nombre: "Corona 350 ml",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "Coronita 210 ml",
+            descripcion: "",
+            precio: 4.5,
+          },
+          {
+            nombre: "Tropical",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "San Juan 620 ml",
+            descripcion: "",
+            precio: 8,
+          },
+          {
+            nombre: "San Juan 355 ml",
+            descripcion: "",
+            precio: 4.5,
+          },
+          {
+            nombre: "Cristal 650 ml",
+            descripcion: "",
+            precio: 10,
+          },
+          {
+            nombre: "Heineken",
+            descripcion: "",
+            precio: 7.5,
+          },
+          {
+            nombre: "Pilsen 350 ml",
+            descripcion: "",
+            precio: 6,
+          },
+          {
+            nombre: "Budweiser",
+            descripcion: "",
+            precio: 7,
+          },
+          {
+            nombre: "Stella Artois",
+            descripcion: "",
+            precio: 7,
           },
         ],
       },

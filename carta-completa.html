@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173441">
+  <title>Agallas · Carta completa</title>
+  <style>
+    *{box-sizing:border-box}body{max-width:1000px;margin:auto;padding:24px 18px;background:#f6f2e7;color:#173441;font:15px/1.5 Arial,sans-serif}a{color:inherit;display:inline-block;padding:12px 0}h1{margin:12px 0 0}header p{margin:4px 0 24px;color:#5e6b68}section{background:#fffdf7;border:1px solid #dddcd2;border-radius:14px;padding:20px;margin-bottom:18px}h2{margin:0;font-size:25px}h3{margin:22px 0 4px;font-size:17px}section>p{color:#5e6b68}ul{list-style:none;margin:0;padding:0}li{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-bottom:1px solid #17344116;break-inside:avoid}li:last-child{border:0}li div{min-width:0;overflow-wrap:anywhere}li p{margin:4px 0 0;color:#5e6b68;font-size:14px}li>strong{white-space:nowrap}a:focus-visible{outline:3px solid #ad6145}@media print{body{background:white;padding:0;font-size:11px}a{display:none}section{border-radius:0;background:white}h2,h3{break-after:avoid}li p{font-size:10px}}
+  </style>
+</head>
+<body>
+  <header><a href="index.html">← Volver a la carta digital</a><h1>AGALLAS · Carta completa</h1><p>Barra cevichera · Precios en soles (S/)</p></header>
+  <main id="complete-menu"></main>
+  <script src="menu-data.js?v=20261028-carta-completa"></script>
+  <script>
+    const escapeText = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const price = n => Number.isInteger(n) ? n : n.toFixed(2);
+    document.querySelector('#complete-menu').innerHTML = MENU.map(c => '<section><h2>'+escapeText(c.name)+'</h2>'+(c.intro?'<p>'+escapeText(c.intro)+'</p>':'')+c.groups.map(g=>(c.groups.length>1?'<h3>'+escapeText(g.name)+'</h3>':'')+'<ul>'+g.items.map(i=>'<li><div><strong>'+escapeText(i.nombre)+'</strong>'+(i.descripcion?'<p>'+escapeText(i.descripcion)+'</p>':'')+'</div><strong>S/ '+price(i.precio)+'</strong></li>').join('')+'</ul>').join('')+'</section>').join('');
+  </script>
+</body>
+</html>

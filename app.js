@@ -1,4 +1,5 @@
 const $ = s => document.querySelector(s);
+const formatPrice = n => Number.isInteger(n) ? String(n) : n.toFixed(2);
 const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 let selectedCategory = 'all';
 function renderCategories(){
@@ -12,11 +13,11 @@ function renderMenu(){
   const groups=c.groups.map(g=>{
    const items=g.items.filter(i=>normalize([c.name,g.name,i.nombre,i.descripcion].join(' ')).includes(query));
    categoryCount+=items.length;if(!items.length)return '';
-   return `${c.groups.length>1?`<div class="group-title"><h4>${g.name}</h4>${g.label?`<span>${g.label}</span>`:''}</div>`:''}<div class="item-grid">${items.map(i=>`<article class="menu-item"><div class="item-copy"><h5>${i.nombre}</h5>${i.descripcion?`<p>${i.descripcion}</p>`:''}</div><span class="item-price">S/ ${i.precio}</span></article>`).join('')}</div>`;
+   return `${c.groups.length>1?`<div class="group-title"><h4>${g.name}</h4>${g.label?`<span>${g.label}</span>`:''}</div>`:''}<div class="item-grid">${items.map(i=>`<article class="menu-item"><div class="item-copy"><h5>${i.nombre}</h5>${i.descripcion?`<p>${i.descripcion}</p>`:''}</div><span class="item-price">S/ ${formatPrice(i.precio)}</span></article>`).join('')}</div>`;
   }).join('');count+=categoryCount;
-  return categoryCount?`<section class="category-section"><div class="category-title"><h3>${c.name}</h3><span>${categoryCount} ${categoryCount===1?'plato':'platos'}</span></div><p class="category-intro">${c.intro}</p>${groups}</section>`:'';
+  return categoryCount?`<section class="category-section"><div class="category-title"><h3>${c.name}</h3><span>${categoryCount} ${categoryCount===1?'opción':'opciones'}</span></div><p class="category-intro">${c.intro}</p>${groups}</section>`:'';
  }).join('');
- $('#empty').hidden=count>0;$('#results-note').textContent=query?`${count} ${count===1?'plato encontrado':'platos encontrados'}`:'';
+ $('#empty').hidden=count>0;$('#results-note').textContent=query?`${count} ${count===1?'opción encontrada':'opciones encontradas'}`:'';
 }
 function revealCategory(){const active=$('#categories .active');if(active)active.scrollIntoView({behavior:'instant',block:'nearest',inline:'nearest'});}
 function scrollToCategoryStart(){
@@ -40,7 +41,7 @@ const picker=$('#category-picker');
 $('#nav-menu').addEventListener('click',()=>selectCategory('all'));
 $('#nav-search').addEventListener('click',()=>{$('#search').focus({preventScroll:true});window.scrollTo({top:window.scrollY+$('.menu-tools').getBoundingClientRect().top-$('.header').getBoundingClientRect().height,behavior:'instant'});});
 $('#nav-categories').addEventListener('click',()=>{
- $('#picker-options').innerHTML=[{id:'all',name:'Toda la carta',groups:MENU.flatMap(c=>c.groups)},...MENU].map(c=>'<button type="button" data-category="'+c.id+'" aria-pressed="'+(selectedCategory===c.id)+'">'+c.name+'<span>'+c.groups.reduce((n,g)=>n+g.items.length,0)+' platos</span></button>').join('');
+ $('#picker-options').innerHTML=[{id:'all',name:'Toda la carta',groups:MENU.flatMap(c=>c.groups)},...MENU].map(c=>'<button type="button" data-category="'+c.id+'" aria-pressed="'+(selectedCategory===c.id)+'">'+c.name+'<span>'+c.groups.reduce((n,g)=>n+g.items.length,0)+' opciones</span></button>').join('');
  picker.showModal();
 });
 $('#close-picker').addEventListener('click',()=>picker.close());
