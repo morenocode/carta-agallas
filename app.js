@@ -10,9 +10,9 @@ function renderMenu(){
  $('#menu').innerHTML=MENU.filter(c=>selectedCategory==='all'||c.id===selectedCategory).map(c=>{
   let categoryCount=0;
   const groups=c.groups.map(g=>{
-   const items=g.items.filter(i=>normalize([c.name,g.name,...i.slice(0,2)].join(' ')).includes(query));
+   const items=g.items.filter(i=>normalize([c.name,g.name,i.nombre,i.descripcion].join(' ')).includes(query));
    categoryCount+=items.length;if(!items.length)return '';
-   return `${c.groups.length>1?`<div class="group-title"><h4>${g.name}</h4>${g.label?`<span>${g.label}</span>`:''}</div>`:''}<div class="item-grid">${items.map(i=>`<article class="menu-item"><div class="item-copy"><h5>${i[0]}</h5>${i[1]?`<p>${i[1]}</p>`:''}</div><span class="item-price">S/ ${i[2]}</span></article>`).join('')}</div>`;
+   return `${c.groups.length>1?`<div class="group-title"><h4>${g.name}</h4>${g.label?`<span>${g.label}</span>`:''}</div>`:''}<div class="item-grid">${items.map(i=>`<article class="menu-item"><div class="item-copy"><h5>${i.nombre}</h5>${i.descripcion?`<p>${i.descripcion}</p>`:''}</div><span class="item-price">S/ ${i.precio}</span></article>`).join('')}</div>`;
   }).join('');count+=categoryCount;
   return categoryCount?`<section class="category-section"><div class="category-title"><h3>${c.name}</h3><span>${categoryCount} ${categoryCount===1?'plato':'platos'}</span></div><p class="category-intro">${c.intro}</p>${groups}</section>`:'';
  }).join('');
