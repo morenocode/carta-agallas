@@ -34,7 +34,6 @@ function selectCategory(id){selectedCategory=id;$('#search').value='';renderCate
 $('#categories').addEventListener('click',e=>{const button=e.target.closest('[data-category]');if(button)selectCategory(button.dataset.category);});
 $('#search').addEventListener('input',renderMenu);
 $('#clear-search').addEventListener('click',()=>{selectedCategory='all';$('#search').value='';renderCategories();renderMenu();$('#search').focus();});
-$('#show-rounds').addEventListener('click',()=>{selectCategory('causas');scrollToCategoryStart($('#menu [data-group="rondas"]').closest('.group-card'));});
 renderCategories();renderMenu();
 
 const picker=$('#category-picker');
@@ -57,3 +56,44 @@ $('#category-hint').addEventListener('click',()=>{
  $('#categories').scrollBy({left:Math.max(180,$('#categories').clientWidth*.7),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
 });
 new ResizeObserver(updateCategoryHint).observe($('#categories'));
+
+// Gallery advances only while visible. Visitors can pause, swipe or choose a photo.
+const gallery=$('#galeria');
+const slides=[...gallery.querySelectorAll('.gallery-slide')];
+const dots=[...gallery.querySelectorAll('[data-slide]')];
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let currentSlide=0, galleryTimer, galleryVisible=false, galleryHovered=false, galleryFocusPaused=false;
+let galleryPaused=reducedMotion.matches;
+function stopGallery(){clearTimeout(galleryTimer);}
+function scheduleGallery(){
+ stopGallery();
+ if(galleryPaused||!galleryVisible||galleryHovered||document.hidden||galleryFocusPaused)return;
+ galleryTimer=setTimeout(()=>{showSlide(currentSlide+1);},5000);
+}
+function showSlide(index){
+ currentSlide=(index+slides.length)%slides.length;
+ slides.forEach((slide,i)=>{slide.classList.toggle('is-active',i===currentSlide);slide.setAttribute('aria-hidden',String(i!==currentSlide));});
+ dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===currentSlide)));
+ $('#gallery-count').textContent=(currentSlide+1)+' / '+slides.length;
+ scheduleGallery();
+}
+function updateGalleryPlay(){
+ $('#gallery-play').setAttribute('aria-label',galleryPaused?'Reproducir galería automática':'Pausar galería automática');
+ $('#gallery-play span').textContent=galleryPaused?'▷':'Ⅱ';
+}
+$('#gallery-play').addEventListener('click',()=>{galleryPaused=!galleryPaused;galleryFocusPaused=galleryPaused;updateGalleryPlay();scheduleGallery();});
+$('#gallery-prev').addEventListener('click',()=>showSlide(currentSlide-1));
+$('#gallery-next').addEventListener('click',()=>showSlide(currentSlide+1));
+$('.gallery-dots').addEventListener('click',e=>{const dot=e.target.closest('[data-slide]');if(dot)showSlide(Number(dot.dataset.slide));});
+gallery.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){galleryHovered=true;stopGallery();}});
+gallery.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){galleryHovered=false;scheduleGallery();}});
+gallery.addEventListener('focusin',()=>{galleryFocusPaused=true;stopGallery();});
+gallery.addEventListener('focusout',e=>{if(!gallery.contains(e.relatedTarget)){galleryFocusPaused=false;scheduleGallery();}});
+document.addEventListener('visibilitychange',scheduleGallery);
+new IntersectionObserver(entries=>{galleryVisible=entries[0].isIntersecting;scheduleGallery();},{threshold:.3}).observe(gallery);
+let swipeStart=null;
+$('.gallery-stage').addEventListener('pointerdown',e=>{if(e.pointerType==='touch')swipeStart={x:e.clientX,y:e.clientY};});
+$('.gallery-stage').addEventListener('pointerup',e=>{if(!swipeStart)return;const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))showSlide(currentSlide+(dx<0?1:-1));});
+$('.gallery-stage').addEventListener('pointercancel',()=>{swipeStart=null;});
+reducedMotion.addEventListener('change',e=>{galleryPaused=e.matches;updateGalleryPlay();scheduleGallery();});
+updateGalleryPlay();
